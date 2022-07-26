@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [CrossBrowserSuite]">
+  <test thread-count="5" name="firefoxTest(failed)">
+    <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="opps.cross.browser.CrossBrowser">
+        <methods>
+          <include name="method"/>
+          <include name="openUrl"/>
+        </methods>
+      </class> <!-- opps.cross.browser.CrossBrowser -->
+    </classes>
+  </test> <!-- firefoxTest(failed) -->
+</suite> <!-- Failed suite [CrossBrowserSuite] -->

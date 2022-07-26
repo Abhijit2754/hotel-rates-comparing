@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="112353" started-at="2022-07-25T17:11:18 IST" finished-at="2022-07-25T17:13:10 IST">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="112353" started-at="2022-07-25T17:11:18 IST" finished-at="2022-07-25T17:13:10 IST">
+      <class name="TestCases.HotelTestCase">
+        <test-method status="PASS" signature="init()[pri:0, instance:TestCases.HotelTestCase@4abdb505]" name="init" is-config="true" duration-ms="81367" started-at="2022-07-25T17:11:18 IST" finished-at="2022-07-25T17:12:39 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="CompareHotelPrice()[pri:0, instance:TestCases.HotelTestCase@4abdb505]" name="CompareHotelPrice" duration-ms="30593" started-at="2022-07-25T17:12:39 IST" finished-at="2022-07-25T17:13:10 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CompareHotelPrice -->
+      </class> <!-- TestCases.HotelTestCase -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
