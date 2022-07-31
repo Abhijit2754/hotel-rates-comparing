@@ -1,6 +1,7 @@
 package ObjectModel;
 
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -11,7 +12,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ObjectHotelClass {
@@ -30,12 +31,15 @@ public class ObjectHotelClass {
 	By countrySelect = By.xpath("//div[@class=\"hsw_inputBox selectHtlCity  \"]");
 	By listCount = By.xpath("//*[@id=\"react-autowhatever-1\"]/div/ul//li//p[1]");
 	By inputField = By.xpath("//input[@placeholder='Enter city/ Hotel/ Area/ Building']");
-	By dateToday = By.xpath("//div[@aria-label='Mon Jul 25 2022']");
-	By enddate = By.xpath("//div[@aria-label='Thu Aug 25 2022']");
+	By dateToday = By.xpath("//div[@aria-label='Fri Sep 02 2022']");
+	By enddate = By.xpath("//div[@aria-label='Wed Sep 21 2022']");
 	By adult = By.xpath("//ul[@class=\"guestCounter font12 darkText\"][1]//li");
 	By children = By.xpath("//ul[@class=\"guestCounter font12 darkText\"][2]//li");
 	By apply = By.xpath("//button[normalize-space()='APPLY']");
 	By search = By.xpath("//button[@id='hsw_search_button']");
+	By eelement = By.xpath("//span[@id='htl_id_seo_4190725563797278']"); 
+	
+	
 	
 	public void clickOnHotel(String country, String adults) throws InterruptedException  
 	{	
@@ -82,22 +86,43 @@ public class ObjectHotelClass {
 	By results = By.xpath("//p[@id=\"hlistpg_hotel_shown_price\"]");
 	
 	public void resultsValidation() throws InterruptedException
-	{
-		JavascriptExecutor js = (JavascriptExecutor)driver;		
-		long iniitheight = (long)(js.executeScript("return document.body.scrollHeight"));		
-		while(true)
+	{	
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		
+		int  screen = 500;		
+		
+		boolean flag = true;
+		
+		while(flag)
 		{
-			js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
+			js.executeScript("window.scrollTo(0,"+screen+")");
 			Thread.sleep(2000);
-			long currentheight = (long)(js.executeScript("return document.body.scrollHeight"));			
-			if(iniitheight == currentheight)
+			try
 			{
-				break;
-			}			
-			iniitheight = currentheight;
+				WebElement ele = driver.findElement(By.xpath("//span[@id='htl_id_seo_201710241514127365']"));
+				
+				flag = false;
+				
+			}
+			catch(Exception e)
+			{
+				
+			}
+			finally
+			{
+				if(flag)
+				{
+					screen = screen + 500;
+				}
+				else
+				{
+					resultsHotel = driver.findElements(results);		
+					System.out.println("Captured All result is :"+resultsHotel.size());
+				}
+			}
 		}		
-		resultsHotel = driver.findElements(results);		
-		System.out.println("Captured All result is :"+resultsHotel.size());
+		
+		
 	}
 	
 	public void compareRate()

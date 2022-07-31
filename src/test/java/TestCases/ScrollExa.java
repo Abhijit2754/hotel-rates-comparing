@@ -8,34 +8,30 @@ import org.testng.annotations.*;
 import Config.BaseClass;
 public class ScrollExa extends BaseClass {
 
-//	@BeforeMethod
-//	public void initii()
-//	{
-//		initilization();
-//	}
-//	
-//	@Test
-//	public void scrollmethod()
-//	{
-//		JavascriptExecutor js = (JavascriptExecutor)driver;
-//		
-//		js.executeScript("window.scrollTo(0,2500)");
-//	}
+	@BeforeMethod
+	public void initii()
+	{
+		initilization();
+	}
 	
 	@Test
-	public void scrollmethcod()
-	{	        
-	    String result="";
-	    String str = "₹ 15,440";
-	    
-	    for(int i= 0; i< str.length(); i++)
-        {
-    	    if(Character.isDigit(str.charAt(i)))
-    	    {
-    	    	result+=str.charAt(i);
-    	    }        
-        }
-	    
-	    System.out.println(result);
-	}
+	public void scrollmethod() throws InterruptedException
+	{
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		
+		js.executeScript("window.scrollTo(0,500)");
+		Thread.sleep(1000);
+		js.executeScript("window.scrollTo(0,1000)");
+		Thread.sleep(1000);
+		js.executeScript("window.scrollTo(0,1500)");
+		Thread.sleep(1000);
+		js.executeScript("window.scrollTo(0,2000)");
+		Thread.sleep(1000);
+		js.executeScript("window.scrollTo(0,2500)");
+		Thread.sleep(1000);
+		js.executeScript("window.scrollTo(0,3000)");
+		Thread.sleep(1000);
+		js.executeScript("window.scrollTo(0,4000)");
+	}	
+	
 }
